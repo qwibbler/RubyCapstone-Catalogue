@@ -20,6 +20,11 @@ class Item
     author.add_item(self) unless author.items.include?(self)
   end
 
+  def add_label(label)
+    @label = label
+    label.add_item(self) unless label.items.include?(self)
+  end
+
   def can_be_archived?
     DateTime.now.year - Date.parse(publish_date).year > 10
   end
