@@ -17,7 +17,8 @@ class Item
   def can_be_archived?
     DateTime.now.year - Date.parse(publish_date).year > 10
   end
-end
 
-item = Item.new('genre', 'author', 'source', 'label', '2010-03-02')
-puts (item.can_be_archived?)
+  def move_to_archive
+    @archived = true if can_be_archived?
+  end
+end
