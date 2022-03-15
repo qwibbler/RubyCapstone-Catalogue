@@ -8,6 +8,7 @@ end
 
 class ListBooks < ListData
   def list(data)
+    return "No Books found" unless data
     data.select { |item| item.instance_of?(Book) }.each_with_index do |book, index|
       super(index, { 'ID' => book.id, 'Publisher' => book.publisher, 'Publish Date' => book.publish_date })
     end
@@ -17,6 +18,7 @@ end
 
 class ListLabels < ListData
   def list(data)
+    return "No Labels found" unless data
     data.select { |item| item.instance_of?(Label) }.each_with_index do |label, index|
       super(index, { 'ID' => label.id, 'Title' => label.title, 'Color' => label.color })
     end
