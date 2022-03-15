@@ -5,7 +5,6 @@ class Genre
 
   def initialize(name, *args)
     super(*args)
-    @id = Random.rand(1..1_000_000)
     @name = name
     @items = []
   end
