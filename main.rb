@@ -15,7 +15,7 @@ arr_options = [
 
 def main(options = arr_options)
   app = App.new
-  puts "\nA Catalogue of My Favorite Things\n"
+  puts "\n\nA Catalogue of My Favorite Things\n\n"
   loop do
     options.each_with_index { |option, index| puts "#{index}) #{option}" }
     puts
