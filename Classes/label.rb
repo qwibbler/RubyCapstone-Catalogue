@@ -1,17 +1,20 @@
-require './item'
+require_relative './item'
 
 class Label
-  attr_reader :title, :color, :items
+  attr_reader :title, :color, :items, :id
 
   def initialize(title, color, *args)
     super(*args)
+    @id = Random.rand(1..1_000_000)
     @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    @items << item if item.instance_of?(Item) && @items.include?(item) == false
+    return unless item.instance_of?(Item) && !@items.include?(item)
+
+    @items << item
     item.add_label(self)
   end
 end
