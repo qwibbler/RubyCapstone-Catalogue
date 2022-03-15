@@ -10,7 +10,12 @@ class AddItem
     gets.chomp
   end
 
-  def answer_yes?(answer)
+  def answer_yes?
+    answer = gets.chomp
+    until %w[y yes n no true false].include?(answer.downcase)
+      print 'Wrong option, please enter [Y/N] '
+      answer = gets.chomp
+    end
     %w[y yes true].include?(answer.downcase)
   end
 
