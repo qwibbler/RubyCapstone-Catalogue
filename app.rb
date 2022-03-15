@@ -1,3 +1,7 @@
+require './Classes/list_data'
+require_relative './Classes/add_game'
+require_relative './Classes/list_games'
+require_relative './Classes/list_authors'
 require_relative './Classes/list_musicalbums'
 require_relative './Classes/add_musicalbum'
 require_relative './Classes/list_genre'
@@ -19,13 +23,13 @@ class App
     case answer
     when '0' then ListBooks.new.list_books(@items)
     when '1' then ListMusicalbums.new.list_musicalbums(@items)
-    when '2' then 'List of games'
+    when '2' then ListGames.new.list_items(@items)
     when '3' then ListGenre.new.list_genres(@genres)
     when '4' then ListLabels.new.list_labels(@labels)
-    when '5' then "List all authors (e.g. 'Stephen King')"
+    when '5' then ListAuthors.new.list_authors(@authors)
     when '6' then AddBook.new.make_item(self)
     when '7' then AddMusicalbum.new.make_item(self)
-    when '8' then 'Add a game'
+    when '8' then AddGame.new.make_item(self)
     else 'That was not a valid answer'
     end
   end
