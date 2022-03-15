@@ -1,10 +1,11 @@
 require './item'
 
 class Genre
-  attr_reader :id, :items
+  attr_reader :id, :name, :items
 
   def initialize(name, *args)
     super(*args)
+    @id = Random.rand(1..1_000_000)
     @name = name
     @items = []
   end
