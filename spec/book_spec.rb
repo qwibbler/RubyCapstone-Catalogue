@@ -13,10 +13,8 @@ describe Book do
     it 'should throw an error without three arguments' do
       expect { Book.new('Publisher', 'CoverState') }.to raise_error(ArgumentError)
     end
-    it 'should have cover_state' do
+    it 'should have all properties' do
       expect(@book.cover_state).to eq('cover_state')
-    end
-    it 'should have publisher' do
       expect(@book.publisher).to eq('publisher')
     end
     it 'should have cover_state settable' do
@@ -31,15 +29,15 @@ describe Book do
   describe '#can_be_archived?' do
     it 'should return true if date is earlier than 10 years' do
       book = Book.new('publisher', 'cover_state', '2010/2/3')
-      expect(book.can_be_archived?).to eq(true)
+      expect(book.can_be_archived?).to be_truthy
     end
     it 'should return true if cover_state is bad' do
       book = Book.new('publisher', 'bad', '2020/2/3')
-      expect(book.can_be_archived?).to eq(true)
+      expect(book.can_be_archived?).to be_truthy
     end
     it 'should return false if cover_state is not bad and date is not earlier than 10 years' do
       book = Book.new('publisher', 'good', '2020/2/3')
-      expect(book.can_be_archived?).to eq(false)
+      expect(book.can_be_archived?).to be_falsy
     end
   end
 end
