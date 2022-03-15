@@ -39,10 +39,6 @@ class AddItem
     first_name = gets.chomp
     puts "What is the author's last name? "
     last_name = gets.chomp
-<<<<<<< HEAD
-    item.add_author(Author.new(first_name, last_name))
-=======
->>>>>>> c533f57fb34d73316c63c38631f12f0ceca4695f
 
     author = app.authors.find { |auth| auth.first_name == first_name && auth.last_name == last_name }
     if author
