@@ -1,6 +1,6 @@
 require './item'
 
-class Label < Item
+class Label
   attr_reader :title, :color, :items
 
   def initialize(title, color, *args)
