@@ -1,4 +1,4 @@
-require './item'
+require_relative './item'
 
 class Author
   attr_accessor :first_name, :last_name
@@ -12,7 +12,9 @@ class Author
   end
 
   def add_item(item)
-    @items << item if item.instance_of?(Item) && !@items.include?(item)
+    return unless item.instance_of?(Item) && !@items.include?(item)
+    
+    @items << item
     item.add_author(self)
   end
 end

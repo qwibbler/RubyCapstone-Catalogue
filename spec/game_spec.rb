@@ -1,6 +1,5 @@
 require_relative '../Classes/game'
 
-
 describe Game do
   before :all do
     @game1 = Game.new('2010-04-05', true, '2015-11-07')
