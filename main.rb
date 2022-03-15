@@ -19,10 +19,10 @@ def main(options = arr_options)
   loop do
     options.each_with_index { |option, index| puts "#{index}) #{option}" }
     puts
-    answer = gets.chomp.to_i
+    answer = gets.chomp
     app.options(answer)
     puts "\nThank you for using the App. Hope to see you soon! :)\n\n" if answer == 9
-    break if answer == 9
+    break if ['9', 'quit', 'q', 'exit'].include(answer)
   end
 end
 
