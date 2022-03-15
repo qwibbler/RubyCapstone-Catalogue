@@ -20,13 +20,14 @@ class AddItem
   end
 
   def add?(something)
-    puts "Would you like to add #{something}? [Y/N]"
-    answer_yes?(gets.chomp)
+    puts
+    print "Would you like to add #{something}? [Y/N] "
+    answer_yes?
   end
 
   def more(item)
-    puts 'Would you like to add more details? [Y/N]'
-    return unless answer_yes?(gets.chomp)
+    print 'Would you like to add more details? [Y/N] '
+    return unless answer_yes?
 
     more_author(item) if add?('an author')
     more_genre(item) if add?('a genre')

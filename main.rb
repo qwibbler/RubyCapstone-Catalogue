@@ -15,13 +15,14 @@ arr_options = [
 
 def main(options = arr_options)
   app = App.new
-  puts "\n\nA Catalogue of My Favorite Things\n\n"
+  puts "\n\nA Catalogue of My Favorite Things\n"
   loop do
+    puts
     options.each_with_index { |option, index| puts "#{index}) #{option}" }
     puts
     answer = gets.chomp
     app.options(answer)
-    puts "\nThank you for using the App. Hope to see you soon! :)\n\n" if answer == 9
+    puts "\nThank you for using the App. Hope to see you soon! :)\n\n" if %w[9 quit q exit].include?(answer)
     break if %w[9 quit q exit].include?(answer)
   end
 end
