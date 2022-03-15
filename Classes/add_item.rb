@@ -25,33 +25,58 @@ class AddItem
     answer_yes?
   end
 
-  def more(item)
+  def more(item, app)
     print 'Would you like to add more details? [Y/N] '
     return unless answer_yes?
 
-    more_author(item) if add?('an author')
-    more_genre(item) if add?('a genre')
-    more_label(item) if add?('a label')
+    more_author(item, app) if add?('an author')
+    more_genre(item, app) if add?('a genre')
+    more_label(item, app) if add?('a label')
   end
 
-  def more_author(item)
+  def more_author(item, app)
     puts "What is the author's first name? "
     first_name = gets.chomp
     puts "What is the author's last name? "
     last_name = gets.chomp
     item.add_author(Author.new(first_name, last_name))
+
+    author = app.authors.find { |auth| auth.first_name == first_name && auth.last_name == last_name }
+    if author
+      item.add_author(author)
+    else
+      author = Author.new(first_name, last_name)
+      item.add_author(author)
+      app.authors << author
+    end
   end
 
-  def more_genre(item)
+  def more_genre(item, app)
     puts "What is the genre's name? "
-    item.add_genre(Genre.new(gets.chomp))
+    name = gets.chomp
+    genre = app.genres.find { |gen| gen.name == name }
+    if genre
+      item.add_genre(genre)
+    else
+      genre = Genre.new(name)
+      item.add_genre(genre)
+      app.genres << genre
+    end
   end
 
-  def more_label(item)
+  def more_label(item, app)
     puts "What is the label's title? "
     title = gets.chomp
     puts "What is the label's color? "
     color = gets.chomp
-    item.add_label(Label.new(title, color))
+
+    label = app.labels.find { |lab| lab.title == title && lab.color == color }
+    if label
+      item.add_label(label)
+    else
+      label = Label.new(title, color)
+      item.add_label(label)
+      app.labels << label
+    end
   end
 end

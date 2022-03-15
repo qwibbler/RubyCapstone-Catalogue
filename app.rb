@@ -7,9 +7,9 @@ class App
 
   def initialize
     @items = []
-    @authors = []
-    @genres = []
     @labels = []
+    @genres = []
+    @authors = []
   end
 
   def options(answer) # rubocop:disable Metrics/CyclomaticComplexity/

@@ -1,5 +1,5 @@
-require_relative './musicalbum'
 require_relative './add_item'
+require_relative './musicalbum'
 
 class AddMusicalbum < AddItem
   def make_item(app)
@@ -9,6 +9,6 @@ class AddMusicalbum < AddItem
     musicalbum = Musicalbum.new(date, on_spotify: on_spotify)
     app.items << musicalbum
     puts "The album was successfully created!\n\n"
-    more(musicalbum)
+    more(musicalbum, app)
   end
 end
