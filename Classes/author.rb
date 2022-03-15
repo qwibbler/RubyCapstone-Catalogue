@@ -13,7 +13,7 @@ class Author
 
   def add_item(item)
     return unless item.instance_of?(Item) && !@items.include?(item)
-    
+
     @items << item
     item.add_author(self)
   end
