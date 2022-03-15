@@ -1,8 +1,7 @@
 class ListLabels < ListData
-  def list(data)
-    return "No Labels found\n\n" if data.empty?
+  def list_labels(data)
+    return puts "No Labels found\n\n" if data.empty?
 
-    data.select! { |item| item.instance_of?(Label) }
-    data.each_with_index { |label, index| get_properties(label, index, %w[Title Color], [label.title, label.color]) }
+    data.each_with_index { |label, index| list(index, {'Title' => label.title, 'Color' => label.color}) }
   end
 end

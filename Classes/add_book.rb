@@ -11,6 +11,6 @@ class AddBook < AddItem
     @book = Book.new(publisher, cover_state, publish_date)
     app.items << @book
     puts 'Book created!'
-    more(@book)
+    more(@book, app)
   end
 end
