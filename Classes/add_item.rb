@@ -10,18 +10,24 @@ class AddItem
     gets.chomp
   end
 
-  def answer_yes?(answer)
+  def answer_yes?
+    answer = gets.chomp
+    until %w[y yes n no true false].include?(answer.downcase)
+      print 'Wrong option, please enter [Y/N] '
+      answer = gets.chomp
+    end
     %w[y yes true].include?(answer.downcase)
   end
 
   def add?(something)
-    puts "Would you like to add #{something}? [Y/N]"
-    answer_yes?(gets.chomp)
+    puts
+    print "Would you like to add #{something}? [Y/N] "
+    answer_yes?
   end
 
   def more(item)
-    puts 'Would you like to add more details? [Y/N]'
-    return unless answer_yes?(gets.chomp)
+    print 'Would you like to add more details? [Y/N] '
+    return unless answer_yes?
 
     more_author(item) if add?('an author')
     more_genre(item) if add?('a genre')
