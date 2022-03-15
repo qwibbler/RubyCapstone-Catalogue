@@ -1,5 +1,5 @@
 require './Classes/list_data'
-require_relative './Classes/add_musicalbum'
+require_relative './Classes/add_book'
 class App
   attr_reader :items
 
