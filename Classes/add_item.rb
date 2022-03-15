@@ -7,7 +7,7 @@ class AddItem
     puts "Creating a new #{item_type}...\n\n"
 
     print 'What date was it published on? (YYYY-MM-DD) '
-    publish_date = gets.chomp
+    gets.chomp
   end
 
   def answer_yes?(answer)
@@ -20,8 +20,8 @@ class AddItem
   end
 
   def more(item)
-    puts "Would you like to add more details? [Y/N]"
-    return unless answer_yes?(gets.chomp) 
+    puts 'Would you like to add more details? [Y/N]'
+    return unless answer_yes?(gets.chomp)
 
     more_author(item) if add?('an author')
     more_genre(item) if add?('a genre')

@@ -22,7 +22,7 @@ def main(options = arr_options)
     answer = gets.chomp
     app.options(answer)
     puts "\nThank you for using the App. Hope to see you soon! :)\n\n" if answer == 9
-    break if ['9', 'quit', 'q', 'exit'].include(answer)
+    break if %w[9 quit q exit].include(answer)
   end
 end
 
