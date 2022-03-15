@@ -30,7 +30,7 @@ class App
     when '6' then AddBook.new.make_item(self)
     when '7' then AddMusicalbum.new.make_item(self)
     when '8' then AddGame.new.make_item(self)
-    else 'That was not a valid answer'
+    else puts 'That was not a valid option'
     end
   end
 end
