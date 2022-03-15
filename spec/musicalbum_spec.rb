@@ -19,15 +19,15 @@ describe Musicalbum do
 
   describe '#can_be_archived?' do
     it 'should return true if both conditions are met' do
-      expect(@musicalbum.can_be_archived?).to be(true)
+      expect(@musicalbum.can_be_archived?).to be_truthy
     end
 
     it 'should return false if !on_spotify' do
-      expect(@musicalbumtwo.can_be_archived?).to be(false)
+      expect(@musicalbumtwo.can_be_archived?).to be_falsy
     end
 
     it 'should return false if !can_be_archived?' do
-      expect(@musicalbumthree.can_be_archived?).to be(false)
+      expect(@musicalbumthree.can_be_archived?).to be_falsy
     end
   end
 end
