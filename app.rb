@@ -21,8 +21,8 @@ class App
     when '3' then "List all genres (e.g 'Comedy', 'Thriller')"
     when '4' then ListLabels.new.list(@items)
     when '5' then ListAuthors.new.list_authors(@authors)
-    when '6' then "Add a book"
-    when '7' then "Add a music album"
+    when '6' then 'Add a book'
+    when '7' then 'Add a music album'
     when '8' then AddGame.new.make_item(self)
     else 'That was not a valid answer'
     end
