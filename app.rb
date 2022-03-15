@@ -9,7 +9,7 @@ class App
 
   def options(answer) # rubocop:disable Metrics/CyclomaticComplexity/
     case answer
-    when '0' then ListBooks.new.list(@items)
+    when '0' then ListBooks.new.list_books(@items)
     when '1' then 'List all music albums'
     when '2' then 'List of games'
     when '3' then "List all genres (e.g 'Comedy', 'Thriller')"
