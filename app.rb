@@ -1,4 +1,10 @@
 class App
+  attr_reader :items
+
+  def initialize
+    @items = []
+  end
+
   def options(answer) # rubocop:disable Metrics/CyclomaticComplexity/
     case answer
     when 1 then 'List all books'
