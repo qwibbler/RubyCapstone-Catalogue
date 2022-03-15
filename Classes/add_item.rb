@@ -53,7 +53,6 @@ class AddItem
   def more_genre(item, app)
     puts "What is the genre's name? "
     name = gets.chomp
-
     genre = app.genres.find { |gen| gen.name == name }
     if genre
       item.add_genre(genre)
