@@ -32,21 +32,23 @@ class ItemData
     return [] unless File.exist?(ItemData.path)
 
     JSON.parse(File.read(ItemData.path)).map do |obj|
-      item = Book.new(obj['publisher'], obj['cover_state'], obj['publish_date'], obj['id']) if obj.instance_of?(Book)
-      item = Game.new(obj['publish_date'], obj['id'], obj['multiplayer'], obj['last_played_at']) if obj.instance_of?(Game)
-      item = Musicalbum.new(obj['publish_date'], obj['id'], obj['on_spotify']) if obj.instance_of?(Musicalbum)
+      item = Book.new(obj['publisher'], obj['cover_state'], obj['publish_date'], obj['id']) if obj['class'] == 'Book'
+      if obj['class'] == 'Game'
+        item = Game.new(obj['publish_date'], obj['id'], obj['multiplayer'],
+                        obj['last_played_at'])
+      end
+      if obj['class'] == 'Musicalbum'
+        item = Musicalbum.new(obj['publish_date'], obj['id'],
+                              on_spotify: obj['on_spotify'])
+      end
       ItemData.add_detail(item, obj, authors, genres, labels)
+      item
     end
   end
 
   def self.add_detail(item, obj, authors, genres, labels)
     item.add_genre(genres.find { |genre| genre.id == obj['genre'] }) unless obj['genre'].nil?
-    item.add_authors(authors.find { |author| author.id == obj['author'] }) unless obj['author'].nil?
+    item.add_author(authors.find { |author| author.id == obj['author'] }) unless obj['author'].nil?
     item.add_label(labels.find { |label| label.id == obj['label'] }) unless obj['label'].nil?
   end
 end
-
-item = Item.new(1)
-game = Game.new('1', 1, true, '1')
-puts game.id
-ItemData.save_data([item])
