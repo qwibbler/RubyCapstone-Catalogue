@@ -17,9 +17,9 @@ class App
 
   def initialize
     @items = []
-    @labels = LabelData.read_data || []
-    @genres = GenreData.read_data || []
-    @authors = AuthorData.read_data || []
+    @labels = LabelData.read_data
+    @genres = GenreData.read_data
+    @authors = AuthorData.read_data
   end
 
   def options(answer) # rubocop:disable Metrics/CyclomaticComplexity/
