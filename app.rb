@@ -16,8 +16,8 @@ class App
 
   def initialize
     @items = []
-    @labels = LabelData.read_data || []
-    @genres = GenreData.read_data || []
+    @labels = LabelData.read_data
+    @genres = GenreData.read_data
     @authors = []
   end
 

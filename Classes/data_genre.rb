@@ -9,7 +9,6 @@ class GenreData
   def self.read_data
     return nil unless File.exist?(GenreData.path)
 
-    result = []
     result = JSON.parse(File.read(GenreData.path)) unless File.read(GenreData.path) == ''
     result.map { |response| Genre.new(response['name'], response['id']) }
   end
