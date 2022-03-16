@@ -9,6 +9,7 @@ require './Classes/list_books'
 require './Classes/list_labels'
 require './Classes/add_book'
 require_relative './Classes/data_genre'
+require './Classes/data_author'
 
 class App
   attr_reader :items, :labels, :genres, :authors
@@ -17,7 +18,7 @@ class App
     @items = []
     @labels = []
     @genres = GenreData.read_data || []
-    @authors = []
+    @authors = AuthorData.read_data || []
   end
 
   def options(answer) # rubocop:disable Metrics/CyclomaticComplexity/
@@ -38,5 +39,6 @@ class App
 
   def app_save
     GenreData.save_data(@genres)
+    AuthorData.save_data(@authors)
   end
 end
