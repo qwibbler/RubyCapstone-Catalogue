@@ -1,22 +1,23 @@
-require './Classes/list_data'
+require_relative './Classes/list_data'
 require_relative './Classes/add_game'
 require_relative './Classes/list_games'
 require_relative './Classes/list_authors'
 require_relative './Classes/list_musicalbums'
 require_relative './Classes/add_musicalbum'
 require_relative './Classes/list_genre'
-require './Classes/list_books'
-require './Classes/list_labels'
-require './Classes/add_book'
+require_relative './Classes/list_books'
+require_relative './Classes/list_labels'
+require_relative './Classes/add_book'
 require_relative './Classes/data_genre'
 require './Classes/data_author'
+require_relative './Classes/data_label'
 
 class App
   attr_reader :items, :labels, :genres, :authors
 
   def initialize
     @items = []
-    @labels = []
+    @labels = LabelData.read_data || []
     @genres = GenreData.read_data || []
     @authors = AuthorData.read_data || []
   end
@@ -40,5 +41,6 @@ class App
   def app_save
     GenreData.save_data(@genres)
     AuthorData.save_data(@authors)
+    LabelData.save_data(@labels)
   end
 end
