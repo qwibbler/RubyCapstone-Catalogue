@@ -8,7 +8,7 @@ require_relative './Classes/list_genre'
 require './Classes/list_books'
 require './Classes/list_labels'
 require './Classes/add_book'
-require_relative './Classes/data_genre.rb'
+require_relative './Classes/data_genre'
 
 class App
   attr_reader :items, :labels, :genres, :authors

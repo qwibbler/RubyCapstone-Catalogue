@@ -20,7 +20,7 @@ class GenreData
     new_genres = genres.map do |genre|
       {
         name: genre.name,
-        id: genre.id,
+        id: genre.id
       }
     end
     File.write(GenreData.path, JSON.generate(new_genres))
