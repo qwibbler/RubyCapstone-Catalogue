@@ -11,9 +11,7 @@ class GenreData
 
     result = []
     result = JSON.parse(File.read(GenreData.path)) unless File.read(GenreData.path) == ''
-    result.map do |response|
-      Genre.new(response['name'], response['id'])
-    end
+    result.map { |response| Genre.new(response['name'], response['id']) }
   end
 
   def self.save_data(genres)
