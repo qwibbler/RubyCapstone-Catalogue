@@ -3,7 +3,7 @@ require_relative './label'
 
 class LabelData
   def self.path
-    './data/label.json'
+    './Data/label.json'
   end
 
   def self.save_data(data)
