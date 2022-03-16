@@ -18,9 +18,8 @@ class LabelData
   end
 
   def self.read_data
-    return nil unless File.exist?(LabelData.path)
+    return [] unless File.exist?(LabelData.path)
 
-    result = []
     result = JSON.parse(File.read(LabelData.path)) unless File.read(LabelData.path) == ''
     result.map { |label| Label.new(label['title'], label['color'], label['id']) }
   end
