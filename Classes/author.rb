@@ -4,8 +4,8 @@ class Author
   attr_accessor :first_name, :last_name
   attr_reader :items, :id
 
-  def initialize(first_name, last_name)
-    @id = Random.rand(1..1_000_000)
+  def initialize(first_name, last_name, id = nil)
+    @id = id || Random.rand(1..1_000_000)
     @first_name = first_name
     @last_name = last_name
     @items = []
