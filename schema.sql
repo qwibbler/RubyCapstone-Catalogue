@@ -45,12 +45,12 @@ CREATE TABLE items_labels (
 CREATE TABLE musicalbums (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   item_id INT REFERENCES items (id),
-  on_spotify BOOLEAN NOT NULL,
+  on_spotify BOOLEAN NOT NULL
 )
 
 CREATE TABLE genres (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  name VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE items_genres (
